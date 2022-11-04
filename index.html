@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Expense Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-2 justify-content-center">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h6 class="my-0 text-muted">Итоговый баланс</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 d-flex justify-content-between align-items-center">
+                                <h5 class="my-0" id="final-balance">0 BYN</h5>
+                                <p class="mb-0 lh-sm">
+                                    <small class="d-block text-muted" id="final-balance-usd">0 USD</small>
+                                    <small class="d-block text-muted" id="final-balance-eur">0 EUR</small>
+                                </p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <h6 class="my-1 text-center text-muted">Доходы</h6>
+                                <h6 class="my-1 text-center text-success"><i class="fa-solid fa-arrow-up text-success me-2"></i><span id="total-income">0 BYN</span></h6>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="my-1 text-center text-muted">Расходы</h6>
+                                <h6 class="my-1 text-center text-danger"><i class="fa-solid fa-arrow-down text-danger me-2"></i><span id="total-costs">0 BYN</span></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2 justify-content-center">
+            <div class="col-sm-4 d-grid">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-operation-modal">Новая операция</button>
+            </div>
+        </div>
+        <div class="row mt-3 justify-content-center align-items-center">
+            <div class="col-sm-4">
+                <h6 class="mb-3 text-muted">История операций</h6>
+                <div id="operations-history"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="new-operation-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Новая операция</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="new-operation-form">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" placeholder="Наименование операции" id="operation">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-sm-12">
+                                <input type="number" class="form-control" min="0.01" step="0.01" placeholder="Сумма" id="amount">
+                            </div>
+                        </div>
+                        <div class="row mt-2 g-2">
+                            <div class="col-sm-6 d-grid">
+                                <button type="button" class="btn btn-danger" id="add-costs">Расход</button>
+                            </div>
+                            <div class="col-sm-6 d-grid">
+                                <button type="button" class="btn btn-success" id="add-income">Доход</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
